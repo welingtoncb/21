@@ -8,6 +8,7 @@ use App\Http\Models\Imovel;
 class ImovelController extends Controller
 {
     private $imovel;
+    private $totalPage = 2;
     
     public function __construct(Imovel $Imovel) {
         $this->imovel = $Imovel;
@@ -55,9 +56,9 @@ class ImovelController extends Controller
     
     public function listing(Imovel $imovel)
     {
-        $imoveis = $imovel::all();
+        $imv = $imovel::where('id','>=',1);
         
-        //dd($imoveis);
+        $imoveis = $imv->paginate($this->totalPage);
         return view('list', compact('imoveis'));
     }
     
@@ -113,5 +114,21 @@ class ImovelController extends Controller
         else{
             return redirect()->route('imovel', $id)->with('errors','Erro ao deletar');
         }
-    }    
+    }
+    
+    public function searchImmobile(Request $request, Imovel $imovel)
+    {
+        $dataForm = $request->except('_token');
+        
+        if($request->codigo != ""){
+            $imoveis = $imovel->where('codigo',$request->codigo)->paginate($this->totalPage);
+        }
+        else
+        {
+            $imv = $imovel::where('id','>=',1);
+            $imoveis = $imv->paginate($this->totalPage);
+        }
+        
+        return view('list', compact('imoveis','dataForm'));
+    }
 }

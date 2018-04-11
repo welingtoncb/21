@@ -17,7 +17,14 @@
 
 @section('content')
 
-<div class="table-responsive">
+<div class="box table-responsive">
+    <div class="box-header">
+        <form method="post" class="form form-inline" action="{{route('searchImmobile')}}">
+            {{ csrf_field() }}
+            <input type="text" name="codigo" placeholder="Código do imóvel:">
+            <input type="submit" value="Pesquisar" class="btn btn-primary">
+        </form>
+    </div>
     <table class="table table-striped table-hover">
         <tr>
             <th>Ação</th>
@@ -77,6 +84,11 @@
         @endforeach
     </table>
     
+    @if(isset($dataForm))
+        {{$imoveis->appends($dataForm)->links()}}
+    @else
+        {{$imoveis->links()}}
+    @endif
 </div>
     
 @stop

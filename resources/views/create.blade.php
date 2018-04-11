@@ -11,7 +11,6 @@
     <script src="js/scripts.js"></script>
 @stop
 
-
 @section('content')
 
 @if (session('status'))

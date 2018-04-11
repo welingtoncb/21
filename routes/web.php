@@ -11,6 +11,7 @@ $this->group(['middleware' => ['auth']],function(){
     $this->get('/imovel/{id}/edit','ImovelController@edit')->name('edit');
     $this->put('/update/{id}','ImovelController@update')->name('update');
     $this->any('/delete/{id}','ImovelController@delete')->name('delete');
+    $this->any('/pesquisa','ImovelController@searchImmobile')->name('searchImmobile');
 });
 
 Route::get('/', function () {
