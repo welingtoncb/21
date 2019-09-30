@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Services\ImovelService;
 
 class HomeController extends Controller
 {
+    /**
+     *
+     * @var $imovelService
+     */
+    private $imovelService;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ImovelService $imovelService)
     {
         $this->middleware('auth');
+        $this->imovelService = $imovelService;
     }
 
     /**
@@ -23,6 +30,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalImoveisCadastrados = $this->imovelService->totalImmobile();
+
+        return view('home', compact('totalImoveisCadastrados'));
     }
 }
