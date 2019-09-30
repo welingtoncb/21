@@ -1,0 +1,3 @@
+lightbox.option({
+    'showImageNumberLabel': false
+})
