@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name'      => 'Welington Cordeiro',
             'email'     => 'wcb@ig.com.br',
-            'password'  => bcrypt('123')
+            'password'  => bcrypt('123456')
         ]);
     }
 }
