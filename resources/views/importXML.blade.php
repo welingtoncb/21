@@ -125,8 +125,9 @@
         @endforeach
         
         {{ $imoveisViews->links() }}
+    @else
+        <h5><b>Nenhum imóvel disponível para importação</b></h5>
     @endif
-    <h5><b>Nenhum imóvel disponível para importação</b></h5>
 </div>
 
 @stop
