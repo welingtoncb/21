@@ -135,6 +135,13 @@ return [
             'label'       => '',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Importar XML',
+            'url'         => 'import',
+            'icon'        => 'share',
+            'label'       => '',
+            'label_color' => 'success',
+        ],
 
         /*
         'ACCOUNT SETTINGS',
