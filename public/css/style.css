@@ -19,3 +19,12 @@
     text-decoration: none;
     color: #FFF;
 }
+
+.content-header {
+    position: relative !important;
+    padding: 15px 30px 0 30px !important;
+}
+
+.lb-nav a.lb-next {
+    display: none !important;
+}
