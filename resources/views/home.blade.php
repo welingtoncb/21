@@ -3,9 +3,11 @@
 @section('title', 'Vinteum')
 
 @section('content_header')
-    <h1>Página Principal</h1>
+    <h1>Dashboard</h1>
 @stop
 
 @section('content')
-    <p>Você está logado!</p>
+    <p>Bem vindo {{ Auth::user()->name }}!</p>
+    <br />
+    <p><b>Total de imÃ³veis cadastrados: </b>{{ $totalImoveisCadastrados }}</p>
 @stop
